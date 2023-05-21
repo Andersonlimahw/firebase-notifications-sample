@@ -10,16 +10,13 @@ import {
 // Initialize Firebase Cloud Messaging and get a reference to the service
 export const messaging = getMessaging(app);
 
-const PUBLIC_API_KEY =
-  "BIYJ5pGOrzKGluWvQ07uEvLAgVxOONpd-HOg5L_GjXqh5VnT_OEcUwp1iPvfuuAkzCuccndzI0hbpFWMPZX9Zic";
+const PUBLIC_API_KEY = "BHk7kelwUm8Mpp-bmF1gaoMJ4sL5nVwebSWDUuY8bhiNHXsWxuc6UnBQ5D_YF6hRDdH6F8EqYpmi-5VVMyWtbSs";
 
 const notificationStatus : any = {
   "denied": () =>  toast("Please enable notifications.", {
     type: "error",
   }),
-  "granted": () =>  toast("Notifications enabled.", {
-    type: "success",
-  }),
+  "granted": () =>  null,
 };
 
 export function requestNotificationPermission() : Promise<boolean> {
@@ -34,7 +31,8 @@ export function requestNotificationPermission() : Promise<boolean> {
     .catch((ex) => {
       throw new Error(`Notifications disabled: ${ex}`);
     });
-};
+}
+
 
 export const requestForToken = () => {
   const hasPermission = requestNotificationPermission().then((data) => data);
@@ -42,12 +40,12 @@ export const requestForToken = () => {
     return;
   }
   return getToken(messaging, { vapidKey: PUBLIC_API_KEY })
-    .then((currentToken) => {
+    .then(async (currentToken) => {
       if (currentToken) {
         // Send the token to your server and update the UI if necessary
         // ...
         // Configurar o serviço de ouvinte de mensagens Firebase Cloud Messaging
-        console.log("Notifications : currentToken => ", currentToken);
+        console.log("Notifications : currentToken => ", currentToken);        
       } else {
         // Show permission request UI
         console.log(
@@ -73,3 +71,5 @@ export const onMessageListener = (): Promise<MessagePayload> =>
       resolve(payload);
     });
   });
+
+

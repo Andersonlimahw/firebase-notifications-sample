@@ -8,12 +8,14 @@ importScripts('https://www.gstatic.com/firebasejs/8.2.0/firebase-messaging.js');
 
 // Initialize the Firebase app in the service worker by passing the generated config
 const firebaseConfig = {
-  apiKey: "AIzaSyCZ_wOBFY9DaJ2SOYv1PtARRGWTsceZS7c",
-  authDomain: "lemon-dev-f1a67.firebaseapp.com",
-  projectId: "lemon-dev-f1a67",
-  storageBucket: "lemon-dev-f1a67.appspot.com",
-  messagingSenderId: "1098455032155",
-  appId: "1:1098455032155:web:885df307e510272a31ba7e"
+  apiKey: "AIzaSyBhQ7OF9QZMLfaeioCdU3xND5Hp77ANdWY",
+  authDomain: "lemon-firebase-samples.firebaseapp.com",
+  databaseURL: "https://lemon-firebase-samples-default-rtdb.firebaseio.com",
+  projectId: "lemon-firebase-samples",
+  storageBucket: "lemon-firebase-samples.appspot.com",
+  messagingSenderId: "944120575676",
+  appId: "1:944120575676:web:f0d77661d0be758b2342b9",
+  measurementId: "G-4C7DDL9BLG"
 };
 
 
