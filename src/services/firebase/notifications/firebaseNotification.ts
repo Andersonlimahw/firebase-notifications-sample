@@ -15,6 +15,10 @@ const PUBLIC_API_KEY = "BHk7kelwUm8Mpp-bmF1gaoMJ4sL5nVwebSWDUuY8bhiNHXsWxuc6UnBQ
 const notificationStatus : any = {
   "denied": () =>  toast("Please enable notifications.", {
     type: "error",
+    delay: 999999,
+    pauseOnHover: true,
+    autoClose: false,
+    closeButton: true,
   }),
   "granted": () =>  null,
 };
